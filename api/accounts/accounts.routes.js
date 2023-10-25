@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const {
   accountsGet,
@@ -6,14 +6,15 @@ const {
   accountDelete,
   accountCreate,
   getAccountByUsername,
-} = require('./accounts.controllers');
+  getAllAcounts,
+} = require("./accounts.controllers");
 
-router.get('/', accountsGet);
-router.get('/:username', getAccountByUsername);
-router.post('/', accountCreate);
+router.get("/", accountsGet);
+router.get("/all", getAllAcounts);
+router.get("/:username", getAccountByUsername);
+router.post("/", accountCreate);
 
-router.delete('/:accountId', accountDelete);
-
-router.put('/:accountId', accountUpdate);
+router.delete("/:accountId", accountDelete);
+router.put("/:accountId", accountUpdate);
 
 module.exports = router;
